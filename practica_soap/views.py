@@ -6,6 +6,7 @@ from .models import *
 # Create your views here.
 
 
+
 def getOilPrice(request):
 	if(request.method=="POST"):
 		form=getOilPriceForm(request.POST)
@@ -24,3 +25,12 @@ def getOilPrice(request):
 		form=getOilPriceForm()
 	return render(request,'practica_soap/formulario_getOilPrice.html',{'form':form})
 
+
+
+
+
+
+#CurrentOilPrice
+wsdl = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL'
+client = zeep.Client(wsdl=wsdl)
+result = client.service.CurrentOilPrice('EN')

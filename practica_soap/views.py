@@ -1,17 +1,12 @@
-<<<<<<< HEAD
 #from django.shortcuts import render
 import zeep
 import xmltodict
-=======
 from django.shortcuts import render
 from zeep import Client
 from .forms import *
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
->>>>>>> 15705cd7e06ad8f9ec576d75e4f33d7ef6aeb219
 # Create your views here.
-
-
 
 def getOilPrice(request):
 	if(request.method=="POST"):
@@ -33,13 +28,8 @@ def getOilPrice(request):
 
 
 
-
-
-
 #CurrentOilPrice
-<<<<<<< HEAD
-def listarOilPrices(request):
-    
+def currentOilPrice(request):
 	wsdl = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL'
 	client = zeep.Client(wsdl=wsdl)
 	result = client.service.CurrentOilPrice('EN')
@@ -48,9 +38,6 @@ def listarOilPrices(request):
 	print(d)
 	oilPrices = set()
 
-	return render(request, 'practica_soap/listar_current.html', {'oilPrices': oilPrices})
-=======
-wsdl = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL'
-client = zeep.Client(wsdl=wsdl)
-result = client.service.CurrentOilPrice('EN')
->>>>>>> 15705cd7e06ad8f9ec576d75e4f33d7ef6aeb219
+	return render(request, 'practica_soap/formulario_currentOilPrice.html', {'oilPrices': oilPrices})
+
+

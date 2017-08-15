@@ -9,4 +9,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^home/', views.mostrar_inidex),
+    url(r'^getOilPrice/', views.getOilPrice),
+    url(r'^currentOilPrice/', views.currentOilPrice),
+
 ]

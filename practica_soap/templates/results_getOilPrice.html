@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jgkhjg</title>
+</head>
+<body>
+{% if results %}
+<table class="egt">
+	  <tr>
+	    <th>fecha</th>
+	    <th>nombre producto</th>
+	    <th>precio</th>
+	    
+	  </tr>
+
+    {% for result in results %}
+    	<tr>
+		    <th>{{ result.PRICE_DATE}}</th>
+		    <th>{{ result.PRODUCT}}</th>
+		    <th>{{ result.PRICE }}</th>
+		    
+	  	</tr>
+	  	
+        
+    {% endfor %}
+    </table>
+	{% else %}
+	    <p>No hay resultados que listar!</p>
+
+
+{% endif %}
+</body>
+</html>

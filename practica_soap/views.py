@@ -17,7 +17,10 @@ def getOilPrice(request):
 			mes=form.get_cleaned_data["mes"]
 			anio=form.get_cleaned_data["anio"]
 			client = Client('http://www.pttplc.com/webservice/pttinfo.asmx?WSDL')
-			result = client.service.GetOilPrice(lenguaje, dia, mes,anio)
+			results = client.service.GetOilPrice(lenguaje, dia, mes,anio)
+			results = xmltodict.parse(results)
+
+			results = results['PTT_DS']['DataAccess']
 			return render(request,'practica_soap/results_getOilPrice.html',{'results':results})
 
 		else:

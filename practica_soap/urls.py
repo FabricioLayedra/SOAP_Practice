@@ -8,5 +8,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^home/', views.mostrar_inidex),
+    url(r'^home/', views.mostrar_index),
+ 
 ]

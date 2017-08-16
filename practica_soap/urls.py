@@ -6,9 +6,8 @@ urlpatterns = [
     # url(r'^$', 'daw.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$', views.mostrar_inidex,name='mostrar_principal'),
+    url(r'^$', views.mostrar_inidex,name='mostrar_inidex'),
     url(r'^formulario_getOilPrice/', views.mostrar_formulario_getOilPrice),
     url(r'^formulario_currentOilPrice/', views.mostrar_formulario_currentOilPrice),
     url(r'^getOilPrice/', views.getOilPrice),

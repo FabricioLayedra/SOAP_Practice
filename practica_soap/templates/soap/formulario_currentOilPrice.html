@@ -1,20 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h2>Registrar factura</h2>
+{% extends "soap/inicial.html" %}
+
+{% load staticfiles %}
+
+{% block title %} Getting Oil Price {% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+<h2>Current Oil Price</h2>
 <form method="Post" action="{% url 'practica_soap.views.currentOilPrice' %}">
 {% csrf_token %}
 {{ form.errors }}
 {{ form.non_field_errors }}
-	<label for="lenguaje">Lenguaje</label><br>
+<div class="col-md-5"></div>
+	<div class="col-md-4">
+		<h1 class="featurette-heading center"> Getting Current Oil Price</h1>
+
+	<label for="lenguaje">Language</label><br>
 	<input type="text" name="lenguaje" id="lenguaje">
 	
 	<input type="submit" value="Upload" />
 
 	</form>
 	<a href="{% url 'practica_soap.views.mostrar_index' %}" >Home</a>
-</body>
-</html>
+		</div>
+	<div class="col-md-3"></div>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+

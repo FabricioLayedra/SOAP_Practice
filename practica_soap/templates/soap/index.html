@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %} Contabilidad {% endblock %}
+{% block title %} Oil Price{% endblock %}
 
 {% block css %}
     
@@ -34,7 +34,7 @@
           <img class="second-slide" src="{% static 'img/slide2.jpg' %}" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Facturas</h1>
+              <h1>Let's search by date!!!</h1>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
           <img class="third-slide" src="{% static 'img/slide3.jpg' %}" alt="Third slide">
           <div class="container">
             <div class="carousel-caption ">
-              <h1 >Recibos</h1>
+              <h1 >Find the current price, <a href="{% url 'practica_soap.views.mostrar_formulario_currentOilPrice' %}" >here!</a></h1>
             </div>
           </div>
         </div>

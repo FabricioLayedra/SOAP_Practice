@@ -1,9 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Resultados de precios</title>
-</head>
-<body>
+{% extends "soap/inicial.html" %}
+
+{% load staticfiles %}
+
+{% block title %} Getting Oil Price {% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+<h2>Current Oil Price</h2>
+<form method="Post" action="{% url 'practica_soap.views.currentOilPrice' %}">
+{% csrf_token %}
+{{ form.errors }}
+{{ form.non_field_errors }}
+<div class="col-md-4"></div>
+	<div class="col-md-5">
+		<h1 class="featurette-heading center"> Results</h1>
 {% if results %}
 <table class="egt">
 	  <tr>
@@ -25,5 +39,9 @@
 
 
 {% endif %}
-</body>
-</html>
+		</div>
+	<div class="col-md-3"></div>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}

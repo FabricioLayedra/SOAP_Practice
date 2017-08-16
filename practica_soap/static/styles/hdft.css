@@ -8,7 +8,7 @@
 }
 /* Background Color paleta Helpmapp*/
 body {
-	background-color: #EBF2FF;
+	background-color: #FFFF71;
 }
 .fixed-bottom{
 
@@ -26,18 +26,18 @@ body {
 
 
 .paleta1{
-	background-color: #212a85;
+	background-color: #211500;
 }
 
 
 
 /*text color header and footer*/
 .navbar-inverse .navbar-nav>li>a {
-    color: #ece242;
+    color: #FFCD00;
 }
 
 .navbar-inverse .navbar-toggle:hover {
-	background-color: #212a85;
+	background-color: #FFCD00;
 }
 
 .header-icon {
@@ -50,3 +50,7 @@ body {
 }
 
 
+.results{
+	background-color: #FFCD00;
+	border-radius: 8%;
+}

@@ -23,10 +23,10 @@ def getOilPrice(request):
 	if(request.method=="POST"):
 		form=getOilPriceForm(request.POST)
 		if(form.is_valid()):
-			lenguaje=form.get_cleaned_data["lenguaje"]
-			dia=form.get_cleaned_data["dia"]
-			mes=form.get_cleaned_data["mes"]
-			anio=form.get_cleaned_data["anio"]
+			lenguaje=form.cleaned_data["lenguaje"]
+			dia=form.cleaned_data["dia"]
+			mes=form.cleaned_data["mes"]
+			anio=form.cleaned_data["anio"]
 			client = Client('http://www.pttplc.com/webservice/pttinfo.asmx?WSDL')
 			results = client.service.GetOilPrice(lenguaje, dia, mes,anio)
 			results = xmltodict.parse(results)
@@ -43,12 +43,13 @@ def currentOilPrice(request):
 	if(request.method=="POST"):
 		form = currentOilPriceForm(request.POST)
 		if(form.is_valid()):
-			lenguaje = form.get_cleaned_data["lenguaje"]
+			lenguaje = form.cleaned_data["lenguaje"]
 			wsdl = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL'
-			client = zeep.Client(wsdl=wsdl)
-			result = client.service.CurrentOilPrice(lenguaje)
-			return render(request, 'practica_soap/results_currentOilPrice.html', {'result': result})			
-			#d = xmltodict.parse(result)
+			client = Client('http://www.pttplc.com/webservice/pttinfo.asmx?WSDL')
+			result = client.service.CurrentOilPrice(lenguaje)			
+			results = xmltodict.parse(result)
+			results = results['PTT_DS']['DataAccess']
+			return render(request, 'soap/results_currentOilPrice.html', {'results': results})
 			#print(result)
 			#print(d)
 			#oilPrices = set()
@@ -56,4 +57,4 @@ def currentOilPrice(request):
 			print('formulario no valido')
 	else:
 		form = currentOilPriceForm()
-	return render(request, 'practica_soap/formulario_currentOilPrice.html', {'form' : form})
+	return render(request, 'soap/formulario_currentOilPrice.html', {'form' : form})

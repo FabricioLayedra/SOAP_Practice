@@ -5,12 +5,12 @@
 </head>
 <body>
 <h2>Registrar factura</h2>
-<form method="Post">
+<form method="Post" action="{% url 'practica_soap.views.currentOilPrice' %}">
 {% csrf_token %}
 {{ form.errors }}
 {{ form.non_field_errors }}
-	<label for="idioma">Idioma</label><br>
-	<input type="text" name="idioma" id="idioma">
+	<label for="lenguaje">Lenguaje</label><br>
+	<input type="text" name="lenguaje" id="lenguaje">
 	
 	<input type="submit" value="Upload" />
 

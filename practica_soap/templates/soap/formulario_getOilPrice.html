@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>Get Oil Price</h2>
-<form method="Post">
+<form method="Post" action="{% url 'practica_soap.views.getOilPrice' %}">
 {% csrf_token %}
 {{ form.errors }}
 {{ form.non_field_errors }}

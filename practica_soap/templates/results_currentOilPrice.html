@@ -10,7 +10,9 @@
 	    <th>fecha</th>
 	    <th>nombre producto</th>
 	    <th>precio</th>
+	    
 	  </tr>
+
     {% for result in results %}
     	<tr>
 		    <th>{{ result.PRICE_DATE}}</th>
@@ -18,6 +20,8 @@
 		    <th>{{ result.PRICE }}</th>
 		    
 	  	</tr>
+	  	
+        
     {% endfor %}
     </table>
 	{% else %}

@@ -8,14 +8,14 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 # Create your views here.
 
-def mostrar_inidex(request):
-    return render(request,'index.html')
+def mostrar_index(request):
+    return render(request,'soap/index.html')
 
 def mostrar_formulario_getOilPrice(request):
-    return render(request,'formulario_getOilPrice.html')
+    return render(request,'soap/formulario_getOilPrice.html')
 
 def mostrar_formulario_currentOilPrice(request):
-    return render(request,'formulario_currentOilPrice.html')
+    return render(request,'soap/formulario_currentOilPrice.html')
 
 
 
@@ -31,12 +31,12 @@ def getOilPrice(request):
 			results = client.service.GetOilPrice(lenguaje, dia, mes,anio)
 			results = xmltodict.parse(results)
 			results = results['PTT_DS']['DataAccess']
-			return render(request,'practica_soap/results_getOilPrice.html',{'results':results})
+			return render(request,'soap/results_getOilPrice.html',{'results':results})
 		else:
 			print('formulario no valido')
 	else:
 		form = getOilPriceForm()
-	return render(request,'practica_soap/formulario_getOilPrice.html',{'form':form})
+	return render(request,'soap/formulario_getOilPrice.html',{'form':form})
 
 #CurrentOilPrice
 def currentOilPrice(request):

@@ -8,6 +8,17 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 # Create your views here.
 
+def mostrar_inidex(request):
+    return render(request,'index.html')
+
+def mostrar_formulario_getOilPrice(request):
+    return render(request,'formulario_getOilPrice.html')
+
+def mostrar_formulario_currentOilPrice(request):
+    return render(request,'formulario_currentOilPrice.html')
+
+
+
 def getOilPrice(request):
 	if(request.method=="POST"):
 		form=getOilPriceForm(request.POST)

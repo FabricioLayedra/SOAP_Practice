@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Registrar factura</h2>
+<form method="Post">
+{% csrf_token %}
+{{ form.errors }}
+{{ form.non_field_errors }}
+	<label for="idioma">Idioma</label><br>
+	<input type="text" name="idioma" id="idioma">
+	
+	<input type="submit" value="Upload" />
+
+	</form>
+	<a href="{% url 'practica_mvc.views.listar_facturas' %}" >Home</a>
+</body>
+</html>

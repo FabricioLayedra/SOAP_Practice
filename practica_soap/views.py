@@ -30,17 +30,13 @@ def getOilPrice(request):
 			client = Client('http://www.pttplc.com/webservice/pttinfo.asmx?WSDL')
 			results = client.service.GetOilPrice(lenguaje, dia, mes,anio)
 			results = xmltodict.parse(results)
-
 			results = results['PTT_DS']['DataAccess']
 			return render(request,'practica_soap/results_getOilPrice.html',{'results':results})
-
 		else:
 			print('formulario no valido')
 	else:
-		form=getOilPriceForm()
+		form = getOilPriceForm()
 	return render(request,'practica_soap/formulario_getOilPrice.html',{'form':form})
-
-
 
 #CurrentOilPrice
 def currentOilPrice(request):

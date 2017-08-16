@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Get Oil Price</h2>
+<form method="Post">
+{% csrf_token %}
+{{ form.errors }}
+{{ form.non_field_errors }}
+	<br>
+	<label for="lenguaje">Lenguaje</label><br>
+	<input type="text" name="lenguaje" id="lenguaje">
+	<br>
+	<br>
+	<label for="dia">Dia</label><br>
+	<input type="number" step="1.00" name="dia" id="dia">
+	<br>
+	<br>
+	<label for="mes">Mes</label><br>
+	<input type="number" step="1.00" name="mes" id="mes">
+	<br>
+	<br>
+	<label for="anio">Anio</label><br>
+	<input type="number" step="1.00" name="anio" id="anio">
+	<br>
+	<br>
+	<input type="submit" value="Upload" />
+	</form>
+	<a href="{% url 'practica_mvc.views.listar_facturas' %}" >Home</a>
+</body>
+</html>
